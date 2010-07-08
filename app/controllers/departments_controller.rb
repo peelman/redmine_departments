@@ -1,5 +1,4 @@
 class DepartmentsController < ApplicationController
-  before_filter :find_project, :authorize
 
   def index
     list
