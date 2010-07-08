@@ -1,0 +1,34 @@
+<% if issue.departments.any? %>
+  <div class="wiki">
+    <ul>
+      <table style="width: 100%; border: 0; margin-bottom: 0;">
+        <% issue.departments.each do |department| %>
+          <tr>
+            <td style="border: 0; padding: 0;">
+              <li>
+                <%= link_to( (department.department_name || department.department_id), department.department_id, {:class => 'external'} ) %>
+              </li>
+              <li>
+                <%= department.contact_names %>
+              </li>
+            </td>
+            <% if authorize_for('issue_department', 'destroy') %>
+              <td style="border: 0; padding: 0;">
+                <%= link_to_remote(image_tag('delete.png'), {
+                  :url => {
+                    :controller => 'issue_departments',
+                    :action => 'destroy',
+                    :issue_id => issue,
+                    :id => department_id,
+                    :only_path => true
+                  },
+                  :method => :post})
+                %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </ul>
+  </div>
+<% end %>

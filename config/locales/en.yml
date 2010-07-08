@@ -1,0 +1,7 @@
+# English strings go here for Rails i18n
+en:
+  field_departments: Departments
+  field_department: Department
+  field_department_name: Department Name
+  field_department_contact_names: Contact Names
+  lable_contact_names: Contact Names

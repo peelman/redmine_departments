@@ -1,0 +1,7 @@
+# English strings go here
+en:
+  label_name: Department Name
+  label_contact_names: Contact Names
+  label_contact_phones: Contact Phones
+  label_contact_emails: Contact Emails
+  label_course_names: Course Names

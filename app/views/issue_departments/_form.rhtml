@@ -1,0 +1,30 @@
+<%= error_messages_for :department %>
+
+<table>
+  <tr>
+    <td>Department Name:</td>
+    <td><%= f.text_field :name, :size => 50 %></td>
+  </tr>
+  <tr>
+    <td>Contact Name(s):</td>
+    <td><%= f.text_field :contact_names, :size => 100 %></td>
+  </tr>
+  <tr>
+    <td>Contact Phone(s):</td>
+    <td><%= f.text_field :contact_phones, :size => 100 %></td>
+  </tr>
+  <tr>
+    <td>Contact Emails(s):</td>
+    <td><%= f.text_field :contact_emails, :size => 100 %></td>
+  </tr>
+  <tr>
+    <td>Course Name(s):</td>
+    <td><%= f.text_field :course_names, :size => 50 %></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= submit_tag l(:button_add) %>
+      <%= toggle_link l(:button_cancel), 'new-department-form'%>
+    </td>
+  </tr>
+</table>
