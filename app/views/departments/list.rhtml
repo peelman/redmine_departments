@@ -1,5 +1,5 @@
 <div class="contextual">
-  <%= link_to l(:label_role_new), {:action => 'new'}, :class => 'icon icon-add' %>
+  <%= link_to('New Department', new_department_path, :class => 'icon icon-add') %>
 </div>
 
 <h2>Departments</h2>
@@ -7,8 +7,8 @@
 <table class="list">
   <thead>
     <tr>
-      <th><%=l(:label_role)%></th>
-      <th><%=l(:button_sort)%></th>
+      <th>Name</th>
+      <th>Sort</th>
     </tr>
   </thead>
   <tbody>
@@ -22,7 +22,5 @@
   </tbody>
 </table>
 
-
-<p><%= link_to l(:label_permissions_report), :action => 'report' %></p>
 
 <% html_title(l(:label_role_plural)) -%>
