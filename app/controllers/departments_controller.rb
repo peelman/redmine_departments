@@ -2,7 +2,7 @@ class DepartmentsController < ApplicationController
   unloadable
 
   def index
-    @department_pages, @departments = paginate :departments, :per_page => 25
+    @department_pages, @departments = paginate( :departments, :per_page => 25)
 
     respond_to do |format|
       format.html
