@@ -7,7 +7,7 @@ class DepartmentsController < ApplicationController
   end
 
   def list
-    @department_pages, @departments = paginate :roles, :per_page => 25
+    @department_pages, @departments = paginate :departments, :per_page => 25
     render :action => "list", :layout => false if request.xhr?
   end
 
