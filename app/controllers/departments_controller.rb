@@ -1,4 +1,5 @@
 class DepartmentsController < ApplicationController
+  unloadable
 
   def index
     list
