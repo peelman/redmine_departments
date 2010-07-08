@@ -2,13 +2,11 @@ class DepartmentsController < ApplicationController
   unloadable
 
   def index
-    list
-    render :action => 'list' unless request.xhr?
-  end
-
-  def list
     @department_pages, @departments = paginate :departments, :per_page => 25
-    render :action => "list", :layout => false if request.xhr?
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   def new
