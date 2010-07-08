@@ -11,12 +11,11 @@ class DepartmentsController < ApplicationController
     render :action => "list", :layout => false if request.xhr?
   end
 
- def new
-    @department = Department.new(params[:name])
-    @department.contact_names = params[:contact_names]
-    @department.save if request.post?
+  def new
+    @department = Department.new
+
     respond_to do |format|
-      format.html { redirect_to :controller => 'issues', :action => 'show', :id => @issue }
+      format.html 
       format.js do
         render :update do |page|
           page.replace_html "departments", :partial => 'issues/departments', :locals => {:issue => @issue, :project => @project}
@@ -25,6 +24,18 @@ class DepartmentsController < ApplicationController
             page << "$('department_contact_names').value = ''"
           end
         end
+      end
+    end
+  end
+
+  def create
+    @department = Department.new(params[:department])
+
+    respond_to do |format|
+      if @department.save
+        format.html { redirect_to departments_path }
+      else
+        format.html { render :new }
       end
     end
   end
