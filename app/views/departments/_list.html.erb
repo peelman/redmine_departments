@@ -16,15 +16,16 @@
 				<td><%= department.contacts.count %></td>
 				<td><%= department.issues.count %></td>
         <td style="border: 0; padding: 0;">
-            <%= link_to_remote(image_tag('delete.png'), {
+          <%= link_to_remote(image_tag('delete.png'), {
               :url => {
                 :action => 'destroy',
                 :controller => 'departments',
                 :id => department.id,
                 :only_path => true
               },
-              :method => :post})
-            %>
+              :method => :post,
+              :confirm => 'Remove this department?'
+            } ) %>
         </td>
       </tr>
     <%- end %>

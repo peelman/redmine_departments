@@ -6,7 +6,7 @@
           <tr>
             <td style="border: 0; padding: 0;">
               <li>
-                <%= department.name %>
+                <%= content_tag(department.name? ? 'em' : 'span', link_to(department.name, department, :id => department)) %>
               </li>
             </td>
             <% if authorize_for('departments', 'removeissue') %>
@@ -20,7 +20,8 @@
                     :only_path => true,
                     :source => 'issue'
                   },
-                  :method => :post})
+                  :method => :post,
+                  :confirm => 'Remove department from this issue?'})
                 %>
               </td>
             <% end %>

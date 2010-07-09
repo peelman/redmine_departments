@@ -1,0 +1,21 @@
+<%= error_messages_for :department %>
+	
+<% remote_form_for(:department, @department, 
+     :url => {:controller => 'departments', :action => 'addissue', :issue_id => @issue},
+     :method => :post,
+     :html => {:id => 'new-department-form', :style => (@department ? '' : 'display: none;')}) do |f| %>
+       
+<table>
+  <tr>
+    <td>Choose Department:</td>
+		<td><%= select( 'department', 'department_id', @departments.map {|u| [u.name,u.id]} ) %></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= submit_tag l(:button_add) %>
+      <%= toggle_link l(:button_cancel), 'new-department-form'%>
+    </td>
+  </tr>
+</table>
+
+<% end %>
