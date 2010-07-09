@@ -3,7 +3,13 @@ class DepartmentsController < ApplicationController
 
   def index
     @department_pages, @departments = paginate( :departments, :per_page => 25)
+    respond_to do |format|
+      format.html
+    end
+  end
 
+  def view
+    @department = Department.find(params[:id])
     respond_to do |format|
       format.html
     end
@@ -11,7 +17,6 @@ class DepartmentsController < ApplicationController
 
   def new
     @department = Department.new
-
     respond_to do |format|
       format.html 
       format.js do
@@ -26,9 +31,15 @@ class DepartmentsController < ApplicationController
     end
   end
 
+  def edit
+    @department = Department.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def create
     @department = Department.new(params[:department])
-
     respond_to do |format|
       if @department.save
         format.html { redirect_to departments_path }

@@ -1,6 +1,6 @@
-<h2>New Department</h2>
+<h2>Edit Department <%= @department.abbreviation %></h2>
 
-<%- form_for(Department.new) do |f| %>
+<%- form_for(@department, :url => { :action => "edit" } ) do |f| %>
   <%= f.error_messages %>
 <table>
 	<thead>
@@ -8,7 +8,7 @@
 	<tbody>
 		<tr>
 			<td style="text-align:right;"><%= f.label :name %>:</td>
-			<td><%= f.text_field :name, :size => 20 %></td>
+			<td><%= f.text_field :name, :size => 40 %></td>
 		</tr>
 		<tr>
 			<td style="text-align:right;"><%= f.label :abbreviation %>:</td>
@@ -16,20 +16,20 @@
 		</tr>
 		<tr>
 			<td style="text-align:right;"><%= f.label :contact_names %>:</td>
-			<td><%= f.text_area :contact_names, :size => "20x3" %></td>
+			<td><%= f.text_area :contact_names, :size => "20x3" %><br /><span style="font-size:80%;">(Separate with commas)</span></td>
 		</tr>
 		<tr>
 			<td style="text-align:right;"><%= f.label :contact_phones %>:</td>
-			<td><%= f.text_area :contact_phones, :size => "20x3" %></td>
+			<td><%= f.text_area :contact_phones, :size => "20x3" %><br /><span style="font-size:80%;">(Separate with commas)</span></td>
 		<tr>
 			<td style="text-align:right;"><%= f.label :contact_emails %>:</td>
-			<td><%= f.text_area :contact_emails, :size => "20x3" %></td>
+			<td><%= f.text_area :contact_emails, :size => "20x3" %><br /><span style="font-size:80%;">(Separate with commas)</span></td>
 		</tr>
 	</tbody>
 </table>
 
   <p>
-    <%= f.submit 'Create Department' %>
+    <%= f.submit 'Edit Department' %>
   </p>
 <%- end %>
 

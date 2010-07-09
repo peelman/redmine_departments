@@ -1,0 +1,9 @@
+<h2><%= @department.name %> (<%= @department.abbreviation %>)</h2>
+<div>
+	<h3>Contact Names</h3>
+	<% @department.contact_names.split(',').each do |contact_name| %>
+	<%= contact_name %><br />
+	<% end %>
+</div>
+
+<% html_title('Department - ' ) -%>
