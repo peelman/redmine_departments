@@ -23,9 +23,6 @@ Redmine::Plugin.register :redmine_departments do
   permission :departments, {:departments => [:index]}, :public => true
   menu :top_menu, :departments, { :controller => 'departments', :action => 'index' }, :caption => 'Departments', :after => :new, :param => :project_id
   
-  #permission :department, {:department => [:index]}, :public => true
-  #menu :project_menu, :department, { :controller => 'department', :action => :project_id }, :caption => 'Departments', :after => :activity, :param => :project_id
-  
   project_module :departments do |map|
     map.permission :view_departments, { :departments => :index }
     map.permission :add_departments, { :departments => :new }

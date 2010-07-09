@@ -1,22 +1,11 @@
-<% if authorize_for('departments', 'edit') %>
 	<div class="contextual">
 	  <%= link_to('Edit Department', edit_department_path, :class => 'icon icon-edit') %>
 	</div>
-<% end %>
 
 <h2><%= link_to l(:label_department_plural), :controller => 'departments', :action => 'index' %> &#187; <%= @department.name %> (<%= @department.abbreviation %>)</h2>
 <div id="department-contacts">
 	<h3>Contacts</h3>
-  <%- @department.contacts.each do |contact| %>
-    <p><%= mail_to contact.email, contact.name %> (<%=h number_to_phone(contact.phone) %>)</p>
-	<%- if ( contact.courses != '') %>
-	<ul>
-		<%- contact.courses.split(',').each do |course| %>
-		<li><%= course %></li>
-		<%- end %>
-	</ul>
-	<%- end %>
-  <%- end %>
+  <%= render :partial => 'departments/contacts/list', :locals => { :department => @department }%>
 </div>
 
 <div id="department-issues">
@@ -27,6 +16,7 @@
 			  <th>ID</th>
 			  <th>Subject</th>
 			  <th>Status</th>
+			  <th>Remove</th>
 			</tr>
 		</thead>
 	  <tbody>
@@ -35,6 +25,18 @@
         <td>#<%= issue.id %></td>
         <td><%=link_to( issue.subject, :controller => 'issues', :action => 'show', :id => issue ) %></td>
         <td><%= IssueStatus.find(issue.status_id).name %></td>
+        <td style="border: 0; padding: 0;">
+          <%= link_to_remote(image_tag('delete.png'), {
+            :url => {
+              :controller => 'departments',
+              :action => 'removeissue',
+              :issue_id => issue.id,
+              :department_id => @department.id,
+              :only_path => true
+            },
+            :method => :post})
+          %>
+        </td>
       </tr>
       <%- end %>
     </tbody>

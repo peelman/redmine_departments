@@ -1,0 +1,10 @@
+<%- @department.contacts.each do |contact| %>
+  <p><%= mail_to contact.email, contact.name %> (<%=h number_to_phone(contact.phone) %>)</p>
+  <%- if ( contact.courses != '') %>
+    <ul>
+      <%- contact.courses.split(',').each do |course| %>
+      <li><%= course %></li>
+      <%- end %>
+    </ul>
+  <%- end %>
+<%- end %>
