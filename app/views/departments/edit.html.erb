@@ -29,7 +29,7 @@
 </table>
 
   <p>
-    <%= f.submit 'Edit Department' %>
+    <%= f.submit 'Edit Department' %><%= link_to(l(:link_cancel), :action => 'view', :id => @department.id) %>
   </p>
 <%- end %>
 
