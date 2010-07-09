@@ -18,11 +18,10 @@
 				<td><%= content_tag(department.name? ? 'em' : 'span', link_to(department.name, :action => 'view', :id => department)) %></td>
 				<td><%= department.abbreviation %></td>
 				<td><%= department.contact_names.split(",").count %></td>
-
       </tr>
     <% end %>
   </tbody>
 </table>
 
 
-<% html_title('Departments') %>
+<% html_title(l(:title_department_plural)) -%>

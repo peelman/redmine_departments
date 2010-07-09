@@ -3,7 +3,8 @@
 	<h3>Contact Names</h3>
 	<% @department.contact_names.split(',').each do |contact_name| %>
 	<%= contact_name %><br />
+	<%= link_to('Edit', :action => 'edit', :id => @department) %>
 	<% end %>
 </div>
 
-<% html_title('Department - ' ) -%>
+<% html_title(l(:title_department_view)) -%>
