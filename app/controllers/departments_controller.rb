@@ -97,6 +97,26 @@ class DepartmentsController < ApplicationController
       end
     end
   end
+  
+  def removecontact
+    @department = Department.find(params[:id])
+    respond_to do |format|
+      if @department.contacts.delete(Contact.find(params[:contact_id]))
+        format.html { redirect_to @department }
+        format.js do
+          render :update do |page|
+            page.replace_html "department-contacts", :partial => 'departments/contacts/list', :locals => {:department => @department, :issue => @issue, :project => @project}
+          end
+        end
+      else
+        format.js do
+          render :update do |page|
+            page.replace_html "departments", :partial => 'departments/contacts/list', :locals => {:department => @department, :issue => @issue, :project => @project}
+          end
+        end
+      end
+    end
+  end
 
   def create
     @department = Department.new(params[:department])

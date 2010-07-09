@@ -3,8 +3,9 @@
 	</div>
 
 <h2><%= link_to l(:label_department_plural), :controller => 'departments', :action => 'index' %> &#187; <%= @department.name %> (<%= @department.abbreviation %>)</h2>
+<h3>Contacts</h3>
 <div id="department-contacts">
-	<h3>Contacts</h3>
+
   <%= render :partial => 'departments/contacts/list', :locals => { :department => @department }%>
 </div>
 
@@ -34,6 +35,7 @@
               :department_id => @department.id,
               :only_path => true
             },
+            :confirm => "Remove this issue?",
             :method => :post})
           %>
         </td>
