@@ -25,6 +25,6 @@
   </table>
 
   <p>
-    <%= f.submit "#{f.object.new_record? ? 'Create' : 'Save'} Department" %>
+    <%= f.submit "#{f.object.new_record? ? 'Create' : 'Save'} Department" %> <%= f.object.new_record? ? link_to(l(:link_cancel), departments_path) : link_to(l(:link_cancel), department_path, :id => @department)  %>
   </p>
 <%- end %>
