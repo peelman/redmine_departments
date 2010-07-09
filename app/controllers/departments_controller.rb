@@ -8,7 +8,7 @@ class DepartmentsController < ApplicationController
     end
   end
 
-  def view
+  def show
     @department = Department.find(params[:id])
     respond_to do |format|
       format.html
