@@ -11,15 +11,27 @@
         <td><%= f.text_field :abbreviation, :size => 10 %></td>
       </tr>
       <tr>
-        <td style="text-align:right;"><%= f.label :contact_names %>:</td>
-        <td><%= f.text_area :contact_names, :size => "20x3" %><br /><span style="font-size:80%;">(Separate with commas)</span></td>
-      </tr>
-      <tr>
-        <td style="text-align:right;"><%= f.label :contact_phones %>:</td>
-        <td><%= f.text_area :contact_phones, :size => "20x3" %><br /><span style="font-size:80%;">(Separate with commas)</span></td>
-      <tr>
-        <td style="text-align:right;"><%= f.label :contact_emails %>:</td>
-        <td><%= f.text_area :contact_emails, :size => "20x3" %><br /><span style="font-size:80%;">(Separate with commas)</span></td>
+        <td>Contacts</td>
+        <td colspan="2">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%- f.fields_for :contacts do |contact_form| %>
+                <tr>
+                  <td><%= contact_form.text_field :name %></td>
+                  <td><%= contact_form.text_field :phone %></td>
+                  <td><%= contact_form.text_field :email %></td>
+                </tr>
+              <%- end %>
+            </tbody>
+          </table>
+        </td>
       </tr>
     </tbody>
   </table>

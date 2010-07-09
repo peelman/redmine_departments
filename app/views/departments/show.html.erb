@@ -4,10 +4,10 @@
 
 <h2><%= link_to l(:label_department_plural), :controller => 'departments', :action => 'index' %> &#187; <%= @department.name %> (<%= @department.abbreviation %>)</h2>
 <div>
-	<h3>Contact Names</h3>
-	<% @department.contact_names.split(',').each do |contact_name| %>
-	<%= contact_name %><br />
-	<% end %>
+	<h3>Contacts</h3>
+  <%- @department.contacts.each do |contact| %>
+    <p><%=h contact.name %> (<%=h number_to_phone(contact.phone) %>)</p>
+  <%- end %>
 </div>
 
 <% html_title(l(:title_department_view)) -%>

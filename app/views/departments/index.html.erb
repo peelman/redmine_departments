@@ -17,7 +17,7 @@
       <tr class="<%= cycle("odd", "even") %>">
 				<td><%= content_tag(department.name? ? 'em' : 'span', link_to(department.name, department, :id => department)) %></td>
 				<td><%= department.abbreviation %></td>
-				<td><%= department.contact_names.split(",").count %></td>
+				<td><%= department.contacts.count %></td>
       </tr>
     <% end %>
   </tbody>

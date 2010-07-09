@@ -17,6 +17,8 @@ class DepartmentsController < ApplicationController
 
   def new
     @department = Department.new
+    @department.contacts.build
+
     respond_to do |format|
       format.html 
       format.js do
@@ -33,6 +35,7 @@ class DepartmentsController < ApplicationController
 
   def edit
     @department = Department.find(params[:id])
+    @department.contacts.build
     respond_to do |format|
       format.html
     end
