@@ -8,8 +8,10 @@
 
   <p><strong><%= l(:field_departments) %></strong></p>
   <%= render :partial => 'issue_departments/list', :locals => {:issue => @issue} %>
-
-  <% remote_form_for(:department, @department, 
+	
+  <%
+  @departments = Department.find(:all, :order => :name)
+ remote_form_for(:department, @department, 
        :url => {:controller => 'issue_departments', :action => 'new', :issue_id => @issue},
        :method => :post,
        :html => {:id => 'new-department-form', :style => (@department ? '' : 'display: none;')}) do |f| %>

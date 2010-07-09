@@ -1,9 +1,9 @@
 <%= error_messages_for :department %>
-
+Departments Total Count: <%= @departments.count %>
 <table>
   <tr>
     <td>Choose Department:</td>
-    <td><%= f.text_field :course_names, :size => 50 %></td>
+		<td><%= select ( 'department', 'name', @departments.map {|u| [u.name,u.id]} ) %></td>
   </tr>
   <tr>
     <td colspan="2">
