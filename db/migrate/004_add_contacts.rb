@@ -3,9 +3,10 @@ class AddContacts < ActiveRecord::Migration
     remove_column :departments, :contact_names
     remove_column :departments, :contact_emails
     remove_column :departments, :contact_phones
+    remove_column :departments, :course_names
 
     create_table :contacts, :force => true do |t|
-      t.string "name", "email", "phone"
+      t.string "name", "email", "phone", "courses"
       t.integer "department_id"
       t.timestamps
     end
@@ -19,5 +20,6 @@ class AddContacts < ActiveRecord::Migration
     add_column :departments, :contact_phones, :limit => 200, :null => false, :default => nil
     add_column :departments, :contact_emails, :limit => 200, :null => false, :default => nil
     add_column :departments, :contact_names, :limit => 200, :null => false, :default => nil
+    add_column :departments, :course_names,  :limit => 200, :null => false, :default => nil
   end
 end

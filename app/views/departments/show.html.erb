@@ -3,11 +3,26 @@
 </div>
 
 <h2><%= link_to l(:label_department_plural), :controller => 'departments', :action => 'index' %> &#187; <%= @department.name %> (<%= @department.abbreviation %>)</h2>
-<div>
+<div id="department-contacts">
 	<h3>Contacts</h3>
   <%- @department.contacts.each do |contact| %>
     <p><%= mail_to contact.email, contact.name %> (<%=h number_to_phone(contact.phone) %>)</p>
+	<%- if ( contact.courses != '') %>
+	<ul>
+		<%- contact.courses.split(',').each do |course| %>
+		<li><%= course %></li>
+		<%- end %>
+	</ul>
+	<%- end %>
   <%- end %>
+</div>
+
+<div id="department-issues">
+	<h3>Issues</h3>
+  <%- @department.issues.each do |issue| %>
+    <p><%=issue%></p>
+  <%- end %>
+	
 </div>
 
 <% html_title(l(:title_department_view)) -%>
