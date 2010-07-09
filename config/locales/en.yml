@@ -4,4 +4,7 @@ en:
   field_department: Department
   field_department_name: Department Name
   field_department_contact_names: Contact Names
+  label_name: Department Name
+  label_department_plural: Departments
   lable_contact_names: Contact Names
+  label_department_plural: Departments

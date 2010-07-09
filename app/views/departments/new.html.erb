@@ -2,14 +2,35 @@
 
 <%- form_for(@department) do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
+<table>
+	<thead>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="text-align:right;"><%= f.label :name %>:</td>
+			<td><%= f.text_field :name, :size => 20 %></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;"><%= f.label :abbreviation %>:</td>
+			<td><%= f.text_field :abbreviation, :size => 10 %></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;"><%= f.label :contact_names %>:</td>
+			<td><%= f.text_area :contact_names, :size => "20x3" %></td>
+		</tr>
+		<tr>
+			<td style="text-align:right;"><%= f.label :contact_phones %>:</td>
+			<td><%= f.text_area :contact_phones, :size => "20x3" %></td>
+		<tr>
+			<td style="text-align:right;"><%= f.label :contact_emails %>:</td>
+			<td><%= f.text_area :contact_emails, :size => "20x3" %></td>
+		</tr>
+	</tbody>
+</table>
 
   <p>
     <%= f.submit 'Create Department' %>
   </p>
 <%- end %>
 
-<% html_title(l(:label_role_plural)) -%>
+<% html_title(l(:label_department_plural)) -%>
