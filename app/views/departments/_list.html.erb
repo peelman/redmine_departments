@@ -4,6 +4,7 @@
       <th>Name</th>
       <th>Abbreviation</th>
       <th>Contacts</th>
+      <th>Issues</th>
       <th>Remove</th>
     </tr>
   </thead>
@@ -13,6 +14,7 @@
 				<td><%= content_tag(department.name? ? 'em' : 'span', link_to(department.name, department, :id => department)) %></td>
 				<td><%= department.abbreviation %></td>
 				<td><%= department.contacts.count %></td>
+				<td><%= department.issues.count %></td>
         <td style="border: 0; padding: 0;">
             <%= link_to_remote(image_tag('delete.png'), {
               :url => {

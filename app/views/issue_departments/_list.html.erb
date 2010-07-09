@@ -17,7 +17,8 @@
                     :action => 'removeissue',
                     :issue_id => issue,
                     :department_id => department.id,
-                    :only_path => true
+                    :only_path => true,
+                    :source => 'issue'
                   },
                   :method => :post})
                 %>
