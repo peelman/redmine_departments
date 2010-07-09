@@ -28,8 +28,10 @@ Redmine::Plugin.register :redmine_departments do
   
   project_module :departments do |map|
     map.permission :view_departments, { :departments => :index }
-    map.permission :add_departments, { :issue_departments => :new }
-    map.permission :delete_departments, { :issue_departments => :destroy }
+    map.permission :create_departments, { :departments => :new }
+    map.permission :destroy_departments, { :departments => :destroy }
+    map.permission :add_issue_to_department, { :departments => :addissue }
+    map.permission :remove_issue_from_department, { :departments => :removeissue }
   end
 
 end

@@ -1,9 +1,8 @@
 <%= error_messages_for :department %>
-Departments Total Count: <%= @departments.count %>
 <table>
   <tr>
     <td>Choose Department:</td>
-		<td><%= select ( 'department', 'name', @departments.map {|u| [u.name,u.id]} ) %></td>
+		<td><%= select( 'department', 'department_id', @departments.map {|u| [u.name,u.id]} ) %></td>
   </tr>
   <tr>
     <td colspan="2">

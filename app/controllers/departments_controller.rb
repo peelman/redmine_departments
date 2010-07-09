@@ -53,6 +53,50 @@ class DepartmentsController < ApplicationController
       end
     end
   end
+  
+  def addissue
+    @issue = Issue.find(params[:issue_id])
+    @project = @issue.project
+    @department = Department.find(params[:department][:department_id])
+    respond_to do |format|
+      if @department.issues<<@issue
+        format.html
+        format.js do
+          render :update do |page|
+            page.replace_html "departments", :partial => 'issues/departments', :locals => {:department => @department, :issue => @issue, :project => @project}
+          end
+        end
+      else
+        format.js do
+          render :update do |page|
+            page.replace_html "departments", :partial => 'issues/departments', :locals => {:department => @department, :issue => @issue, :project => @project}
+          end
+        end
+      end
+    end
+  end
+  
+  def removeissue
+    @issue = Issue.find(params[:issue_id])
+    @project = @issue.project
+    @department = Department.find(params[:department_id])
+    respond_to do |format|
+      if @department.issues.delete(@issue)
+        format.html
+        format.js do
+          render :update do |page|
+            page.replace_html "departments", :partial => 'issues/departments', :locals => {:department => @department, :issue => @issue, :project => @project}
+          end
+        end
+      else
+        format.js do
+          render :update do |page|
+            page.replace_html "departments", :partial => 'issues/departments', :locals => {:department => @department, :issue => @issue, :project => @project}
+          end
+        end
+      end
+    end
+  end
 
   def create
     @department = Department.new(params[:department])

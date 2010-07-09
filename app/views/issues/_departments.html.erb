@@ -1,7 +1,10 @@
+<%
+  @departments = Department.find(:all, :order => :name)
+%>
 <div id="departments">
   <hr />
   <div class="contextual">
-  <% if authorize_for('issue_departments', 'new') %>
+  <% if authorize_for('departments', 'addissue') %>
       <%= toggle_link l(:button_add), 'new-department-form' %>
   <% end %>
   </div>
@@ -9,10 +12,8 @@
   <p><strong><%= l(:field_departments) %></strong></p>
   <%= render :partial => 'issue_departments/list', :locals => {:issue => @issue} %>
 	
-  <%
-  @departments = Department.find(:all, :order => :name)
- remote_form_for(:department, @department, 
-       :url => {:controller => 'issue_departments', :action => 'new', :issue_id => @issue},
+  <% remote_form_for(:department, @department, 
+       :url => {:controller => 'departments', :action => 'addissue', :issue_id => @issue},
        :method => :post,
        :html => {:id => 'new-department-form', :style => (@department ? '' : 'display: none;')}) do |f| %>
     <%= render :partial => 'issue_departments/form', :locals => {:f => f}%>
