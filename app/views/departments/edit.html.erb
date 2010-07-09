@@ -1,36 +1,4 @@
 <h2>Edit Department <%= @department.abbreviation %></h2>
 
-<%- form_for(@department, :url => { :action => "edit" } ) do |f| %>
-  <%= f.error_messages %>
-<table>
-	<thead>
-	</thead>
-	<tbody>
-		<tr>
-			<td style="text-align:right;"><%= f.label :name %>:</td>
-			<td><%= f.text_field :name, :size => 40 %></td>
-		</tr>
-		<tr>
-			<td style="text-align:right;"><%= f.label :abbreviation %>:</td>
-			<td><%= f.text_field :abbreviation, :size => 10 %></td>
-		</tr>
-		<tr>
-			<td style="text-align:right;"><%= f.label :contact_names %>:</td>
-			<td><%= f.text_area :contact_names, :size => "20x3" %><br /><span style="font-size:80%;">(Separate with commas)</span></td>
-		</tr>
-		<tr>
-			<td style="text-align:right;"><%= f.label :contact_phones %>:</td>
-			<td><%= f.text_area :contact_phones, :size => "20x3" %><br /><span style="font-size:80%;">(Separate with commas)</span></td>
-		<tr>
-			<td style="text-align:right;"><%= f.label :contact_emails %>:</td>
-			<td><%= f.text_area :contact_emails, :size => "20x3" %><br /><span style="font-size:80%;">(Separate with commas)</span></td>
-		</tr>
-	</tbody>
-</table>
-
-  <p>
-    <%= f.submit 'Edit Department' %>
-  </p>
-<%- end %>
-
+<%= render :partial => 'form' %>
 <% html_title(l(:title_department_edit)) -%>
