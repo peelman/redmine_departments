@@ -1,0 +1,10 @@
+<p>
+<% 
+    @departments = Department.find(:all, :order => :name)
+%>
+     
+<label>Choose Departments</label>
+		<span><%= select( 'department', 'department_id', @departments.map { |u| [ u.name, u.id ] }, { :include_blank => true }, { :multiple => 'multiple' } ) %></span>
+
+
+</p>

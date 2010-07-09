@@ -62,13 +62,13 @@ class DepartmentsController < ApplicationController
         format.html
         format.js do
           render :update do |page|
-            page.replace_html "issue-departments", :partial => 'issue_departments/list', :locals => {:department => @department, :issue => @issue, :project => @project}
+            page.replace_html "issue-departments", :partial => 'issues/departments/list', :locals => {:department => @department, :issue => @issue, :project => @project}
           end
         end
       else
         format.js do
           render :update do |page|
-            page.replace_html "issue-departments", :partial => 'issue_departments/list', :locals => {:department => @department, :issue => @issue, :project => @project}
+            page.replace_html "issue-departments", :partial => 'issues/departments/list', :locals => {:department => @department, :issue => @issue, :project => @project}
           end
         end
       end
@@ -88,7 +88,7 @@ class DepartmentsController < ApplicationController
             if (@source == 'department')
               page.replace_html "department-issues", :partial => 'departments/issues/list', :locals => { :department => @department }
             elsif (@source == 'issue')
-              page.replace_html "issue-departments", :partial => 'issue_departments/list', :locals => {:department => @department, :issue => @issue, :project => @project}
+              page.replace_html "issue-departments", :partial => 'issues/departments/list', :locals => {:department => @department, :issue => @issue, :project => @project}
             else
               #do nothing
             end
