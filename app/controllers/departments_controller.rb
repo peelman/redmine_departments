@@ -63,13 +63,13 @@ class DepartmentsController < ApplicationController
         format.html
         format.js do
           render :update do |page|
-            page.replace_html "departments", :partial => 'issues/departments', :locals => {:department => @department, :issue => @issue, :project => @project}
+            page.replace_html "issue-departments", :partial => 'issues_departments/list', :locals => {:department => @department, :issue => @issue, :project => @project}
           end
         end
       else
         format.js do
           render :update do |page|
-            page.replace_html "departments", :partial => 'issues/departments', :locals => {:department => @department, :issue => @issue, :project => @project}
+            page.replace_html "issue-departments", :partial => 'issues_departments/list', :locals => {:department => @department, :issue => @issue, :project => @project}
           end
         end
       end
@@ -80,12 +80,19 @@ class DepartmentsController < ApplicationController
     @issue = Issue.find(params[:issue_id])
     @project = @issue.project
     @department = Department.find(params[:department_id])
+    @source = params[:source];
     respond_to do |format|
       if @department.issues.delete(@issue)
         format.html
         format.js do
           render :update do |page|
-            page.replace_html "departments", :partial => 'issues/departments', :locals => {:department => @department, :issue => @issue, :project => @project}
+            if (@source == 'department')
+              page.replace_html "department-issues", :partial => 'departments/issues/list', :locals => { :department => @department }
+            elsif (@source == 'issue')
+              page.replace_html "issue-departments", :partial => 'issue_departments/list', :locals => {:department => @department, :issue => @issue, :project => @project}
+            else
+              #do nothing
+            end
           end
         end
       else

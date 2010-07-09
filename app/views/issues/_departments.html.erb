@@ -10,13 +10,12 @@
   </div>
 
   <p><strong><%= l(:field_departments) %></strong></p>
+
+<div id="issue-departments">
   <%= render :partial => 'issue_departments/list', :locals => {:issue => @issue} %>
-	
-  <% remote_form_for(:department, @department, 
-       :url => {:controller => 'departments', :action => 'addissue', :issue_id => @issue},
-       :method => :post,
-       :html => {:id => 'new-department-form', :style => (@department ? '' : 'display: none;')}) do |f| %>
-    <%= render :partial => 'issue_departments/form', :locals => {:f => f}%>
-  <% end %>
+</div>
+
+  <%= render :partial => 'issue_departments/form', :locals => {}%>
+
 </div>
 
