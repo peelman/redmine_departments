@@ -15,7 +15,7 @@
   <tbody>
     <% @departments.each do |department| %>
       <tr class="<%= cycle("odd", "even") %>">
-				<td><%= content_tag(department.name? ? 'em' : 'span', link_to(department.name, :action => 'view', :id => department)) %></td>
+				<td><%= content_tag(department.name? ? 'em' : 'span', link_to(department.name, department, :id => department)) %></td>
 				<td><%= department.abbreviation %></td>
 				<td><%= department.contact_names.split(",").count %></td>
       </tr>
