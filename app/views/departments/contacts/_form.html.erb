@@ -1,24 +1,6 @@
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Courses</th>
-              </tr>
-            </thead>
-            <tbody>
-              <%- f.fields_for :contacts do |contact_form| %>
                 <tr>
-                  <td><%= contact_form.text_field :name %></td>
-                  <td><%= contact_form.text_field :phone %></td>
-                  <td><%= contact_form.text_field :email %></td>
-                  <td><%= contact_form.text_field :courses %></td>
+                  <td><%= contact_form.text_field :name, :size => 15 %></td>
+                  <td><%= contact_form.text_field :email, :size => 20 %></td>
+                  <td><%= contact_form.text_field :phone, :size => 15 %></td>
+                  <td><%= contact_form.text_field :courses, :size => 20 %></td>
                 </tr>
-              <%- end %>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>

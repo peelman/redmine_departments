@@ -5,6 +5,6 @@ class Department < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
-  accepts_nested_attributes_for :contacts
+  accepts_nested_attributes_for :contacts, :reject_if => :all_blank
 
 end
