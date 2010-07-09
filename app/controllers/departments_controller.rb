@@ -137,19 +137,16 @@ class DepartmentsController < ApplicationController
   end
 
   def destroy
-    department = Department.find(params[:id])
-    @departments = Department.find(:all)
+    @department = Department.find(params[:id])
     respond_to do |format|
-      if request.post?
-        if department.destroy
-          flash[:notice] = "Department removed!"
-          format.html { redirect_to :controller => 'departments', :action => 'index' }
-          format.js { render(:update) { |page| page.replace_html "departments", :partial => 'departments/list', :locals => {:departments => @departments } } }
-        else
-          flash[:error] = "Couldn't delete department"
-          format.html { redirect_to :controller => 'departments', :action => 'index' }
-          format.js { render(:update) { |page| page.replace_html "departments", :partial => 'departments/list', :locals => {:departments => @departments } } }          
-        end
+      if @department.destroy
+        flash[:notice] = "Department removed!"
+        format.html { redirect_to departments_path }
+        format.js { render(:update) { |page| page.replace_html "departments", :partial => 'departments/list', :locals => {:departments => @departments } } }
+      else
+        flash[:error] = "Couldn't delete department"
+        format.html { redirect_to :controller => 'departments', :action => 'index' }
+        format.js { render(:update) { |page| page.replace_html "departments", :partial => 'departments/list', :locals => {:departments => @departments } } }          
       end
     end
   end
