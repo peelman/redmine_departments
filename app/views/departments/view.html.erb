@@ -1,10 +1,14 @@
+<div class="contextual">
+  <%= link_to('Edit Department', edit_department_path, :class => 'icon icon-edit') %>
+</div>
+
 <h2><%= @department.name %> (<%= @department.abbreviation %>)</h2>
+
 <div>
 	<h3>Contact Names</h3>
 	<% @department.contact_names.split(',').each do |contact_name| %>
 	<%= contact_name %><br />
 	<% end %>
-	<%= link_to('Edit', :action => 'edit', :id => @department) %>
 </div>
 
 <% html_title(l(:title_department_view)) -%>
