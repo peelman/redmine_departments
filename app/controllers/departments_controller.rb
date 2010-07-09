@@ -48,7 +48,6 @@ class DepartmentsController < ApplicationController
         flash[:notice] = 'Department updated!'
         format.html { redirect_to @department }
       else
-        flash[:error] = "Couldn't save the department."
         format.html { render :edit }
       end
     end

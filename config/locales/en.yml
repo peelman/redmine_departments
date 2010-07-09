@@ -3,6 +3,7 @@ en:
   field_departments: Departments
   field_department: Department
   field_department_name: Department Name
+  field_contacts: Contact
   field_name: Name
   field_email: Email
   field_phone: Phone
