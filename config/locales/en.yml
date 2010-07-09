@@ -3,9 +3,14 @@ en:
   field_departments: Departments
   field_department: Department
   field_department_name: Department Name
-  field_department_contact_names: Contact Names
-  field_contact_names: Contact Names
-  label_name: Department Name
+  field_name: Name
+  field_email: Email
+  field_phone: Phone
+  field_courses: Courses
+  label_remove: Remove
+  label_name: Name
+  label_abbreviation: Abbreviation
+  label_contacts: Contacts
   label_department_plural: Departments
   title_department_plural: Departments
   title_department_new: New Department

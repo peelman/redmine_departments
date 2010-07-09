@@ -27,7 +27,7 @@
     </thead>
     <tbody>
       <%- f.fields_for :contacts do |contact_form| %>
-        <%= render :partial => 'departments/contacts/form', :locals => { :f => f, :contact_form => contact_form } %>
+        <%= render :partial => 'departments/contacts/form', :locals => { :contact_form => contact_form } %>
       <%- end %>
     </tbody>
   </table>
