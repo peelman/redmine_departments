@@ -8,7 +8,7 @@ class DepartmentsController < ApplicationController
     end
   end
 
-  def view
+  def show
     @department = Department.find(params[:id])
     respond_to do |format|
       format.html
@@ -35,6 +35,19 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id])
     respond_to do |format|
       format.html
+    end
+  end
+
+  def update
+    @department = Department.find(params[:id])
+    respond_to do |format|
+      if @department.update_attributes(params[:department])
+        flash[:notice] = 'Department updated!'
+        format.html { redirect_to @department }
+      else
+        flash[:error] = "Couldn't save the department."
+        format.html { render :edit }
+      end
     end
   end
 
