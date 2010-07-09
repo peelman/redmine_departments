@@ -1,7 +1,8 @@
+<%- if authorize_for('departments', 'new' ) %>
 <div class="contextual">
   <%= link_to('New Department', new_department_path, :class => 'icon icon-add') %>
 </div>
-
+<%- end %>
 <h2>Departments</h2>
 
 <table class="list">
@@ -9,7 +10,10 @@
     <tr>
       <th>Name</th>
       <th>Abbreviation</th>
-			<th>Contacts</th>
+	  <th>Contacts</th>
+	  <% if authorize_for('departments', 'destroy') %>
+        <th>Remove</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -18,8 +22,21 @@
 				<td><%= content_tag(department.name? ? 'em' : 'span', link_to(department.name, department, :id => department)) %></td>
 				<td><%= department.abbreviation %></td>
 				<td><%= department.contacts.count %></td>
+				<%- if authorize_for('departments', 'destroy') %>
+          <td style="border: 0; padding: 0;">
+            <%= link_to_remote(image_tag('delete.png'), {
+              :url => {
+                :controller => 'departments',
+                :action => 'destroy',
+                :id => department.id,
+                :only_path => true
+              },
+              :method => :post})
+            %>
+          </td>
+	    <%- end %>
       </tr>
-    <% end %>
+    <%- end %>
   </tbody>
 </table>
 

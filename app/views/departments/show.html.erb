@@ -1,6 +1,8 @@
-<div class="contextual">
-  <%= link_to('Edit Department', edit_department_path, :class => 'icon icon-edit') %>
-</div>
+<% if authorize_for('departments', 'edit') %>
+	<div class="contextual">
+	  <%= link_to('Edit Department', edit_department_path, :class => 'icon icon-edit') %>
+	</div>
+<% end %>
 
 <h2><%= link_to l(:label_department_plural), :controller => 'departments', :action => 'index' %> &#187; <%= @department.name %> (<%= @department.abbreviation %>)</h2>
 <div id="department-contacts">
@@ -19,10 +21,24 @@
 
 <div id="department-issues">
 	<h3>Issues</h3>
-  <%- @department.issues.each do |issue| %>
-    <p><%=issue%></p>
-  <%- end %>
-	
+	<table class="list">
+		<thead style="text-align:left;">
+			<tr>
+			  <th>ID</th>
+			  <th>Subject</th>
+			  <th>Status</th>
+			</tr>
+		</thead>
+	  <tbody>
+      <%- @department.issues.each do |issue| %>
+      <tr>
+        <td>#<%= issue.id %></td>
+        <td><%=link_to( issue.subject, :controller => 'issues', :action => 'show', :id => issue ) %></td>
+        <td><%= IssueStatus.find(issue.status_id).name %></td>
+      </tr>
+      <%- end %>
+    </tbody>
+  </table>
 </div>
 
 <% html_title(l(:title_department_view)) -%>
