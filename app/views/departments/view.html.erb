@@ -2,8 +2,7 @@
   <%= link_to('Edit Department', edit_department_path, :class => 'icon icon-edit') %>
 </div>
 
-<h2><%= @department.name %> (<%= @department.abbreviation %>)</h2>
-
+<h2><%= link_to l(:label_department_plural), :controller => 'departments', :action => 'index' %> &#187; <%= @department.name %> (<%= @department.abbreviation %>)</h2>
 <div>
 	<h3>Contact Names</h3>
 	<% @department.contact_names.split(',').each do |contact_name| %>
