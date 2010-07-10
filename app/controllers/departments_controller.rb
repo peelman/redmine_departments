@@ -1,8 +1,10 @@
 class DepartmentsController < ApplicationController
+  
   unloadable
-
+  
   def index
-    @department_pages, @departments = paginate( :departments, :per_page => 25, :order => :name)
+    @departments = Department.paginate :page => params[:page], :order => 'name ASC'
+    @alldepartments = Department.find(:all)
     respond_to do |format|
       format.html
     end
@@ -157,5 +159,5 @@ private
   rescue ActiveRecord::RecordNotFound
     render_404
   end
-
+  
 end

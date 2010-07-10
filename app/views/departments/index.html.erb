@@ -3,9 +3,12 @@
 </div>
 <h2>Departments</h2>
 <div id="departments">
-
+	
   <%= render :partial => 'list' %>
+	<div style="text-align:center; display:inline;"><%= will_paginate @departments %></div>
 
 </div>
-
+<div id="departments-stats">
+	<strong>Total Departments:</strong> <%= @alldepartments.count %>
+</div>
 <% html_title(l(:title_department_plural)) -%>
