@@ -20,16 +20,11 @@ class DepartmentsController < ApplicationController
   def new
     @department = Department.new
     @department.contacts.build
-
     respond_to do |format|
       format.html 
       format.js do
         render :update do |page|
           page.replace_html "departments", :partial => 'issues/departments', :locals => {:issue => @issue, :project => @project}
-          if @department.errors.empty?
-            page << "$('department_name').value = ''"
-            page << "$('department_contact_names').value = ''"
-          end
         end
       end
     end

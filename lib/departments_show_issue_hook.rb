@@ -38,15 +38,15 @@ private
   end
 end
 
-class ShowNewIssueDepartmentsHook < Redmine::Hook::ViewListener
-  render_on :view_issues_form_details_bottom, :partial => "issues/new/form", :if => :has_permission? 
-
-private
-  def protect_against_forgery?
-    false
-  end
-
-  def has_permission?(context)
-    context[:project].module_enabled?('departments') and User.current.allowed_to?(:view_departments, context[:project])
-  end
-end
+# class ShowNewIssueDepartmentsHook < Redmine::Hook::ViewListener
+#   render_on :view_issues_form_details_bottom, :partial => "issues/new/form", :if => :has_permission? 
+# 
+# private
+#   def protect_against_forgery?
+#     false
+#   end
+# 
+#   def has_permission?(context)
+#     context[:project].module_enabled?('departments') and User.current.allowed_to?(:view_departments, context[:project])
+#   end
+# end

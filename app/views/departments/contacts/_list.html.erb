@@ -4,7 +4,9 @@
       <th style="width:200px;">Name (click to email)</th>
       <th>Phone</th>
       <th>Courses</th>
+			<% if authorize_for_with_global :departments, :removecontact, true %>
       <th>Remove</th>
+			<% end %>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +18,7 @@
             <%= contact.courses %>
           <%- end %>
       </td>
+			<% if authorize_for_with_global :departments, :removecontact, true %>
       <td><%= link_to_remote(image_tag('delete.png'), {
         :url => {
           :action => 'removecontact',
@@ -28,6 +31,7 @@
         :method => :post})
       %>
       </td>
+			<% end %>
     </tr>
     <%- end %>
   </tbody>

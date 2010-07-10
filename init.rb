@@ -12,6 +12,7 @@ Dispatcher.to_prepare :redmine_departments do
   end
 end
 
+require_dependency 'application_helper_global_patch'
 require_dependency 'departments_show_issue_hook'
 
 Redmine::Plugin.register :redmine_departments do
@@ -20,14 +21,13 @@ Redmine::Plugin.register :redmine_departments do
   description 'Departments Plugin for the LSSupport Group'
   version '0.0.1'
 
-  permission :departments, {:departments => [:index]}, :public => true
   menu :top_menu, :departments, { :controller => 'departments', :action => 'index' }, :caption => 'Departments', :after => :new, :param => :project_id
   
   project_module :departments do |map|
-    map.permission :view_departments, { :departments => :index }
+    map.permission :view_departments, { :departments => [:index, :show] }
     map.permission :add_departments, { :departments => :new }
     map.permission :edit_departments, { :departments => :edit }
-    map.permission :delete_departments, { :departments => :destroy }
+    map.permission :delete_departments, { :departments => :delete }
     map.permission :add_issue_to_department, { :departments => :addissue }
     map.permission :remove_issue_from_department, { :departments => :removeissue }
   end

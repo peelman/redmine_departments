@@ -1,7 +1,10 @@
-<div class="contextual">
-  <%= link_to('New Department', new_department_path, :class => 'icon icon-add') %>
-</div>
+<% if authorize_for_with_global('departments', 'new', true) %>
+	<div class="contextual">
+  	<%= link_to('New Department', new_department_path, :class => 'icon icon-add') %>
+	</div>
+<% end %>
 <h2>Departments</h2>
+<% if authorize_for_with_global('departments', 'index', true) %>
 <div id="departments">
 	
   <%= render :partial => 'list' %>
@@ -11,4 +14,5 @@
 <div id="departments-stats">
 	<strong>Total Departments:</strong> <%= @alldepartments.count %>
 </div>
+<% end %>
 <% html_title(l(:title_department_plural)) -%>

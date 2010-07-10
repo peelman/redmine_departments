@@ -1,7 +1,8 @@
+<% if authorize_for_with_global(:departments, :edit, true) %>
 	<div class="contextual">
 	  <%= link_to('Edit Department', edit_department_path, :class => 'icon icon-edit') %>
 	</div>
-
+<% end %>
 <h2><%= link_to l(:label_department_plural), :controller => 'departments', :action => 'index' %> &#187; <%= @department.name %> (<%= @department.abbreviation %>)</h2>
 <h3>Contacts</h3>
 <div id="department-contacts">
