@@ -4,7 +4,7 @@ class DepartmentsController < ApplicationController
   
   def index
     @departments = Department.paginate :page => params[:page], :order => 'name ASC'
-    @alldepartments = Department.find(:all)
+    @departmentCount = Department.count(:all)
     respond_to do |format|
       format.html
     end

@@ -8,11 +8,7 @@
 <div id="departments">
 	
   <%= render :partial => 'list' %>
-	<div style="text-align:center; display:inline;"><%= will_paginate @departments %></div>
 
-</div>
-<div id="departments-stats">
-	<strong>Total Departments:</strong> <%= @alldepartments.count %>
 </div>
 <% end %>
 <% html_title(l(:title_department_plural)) -%>

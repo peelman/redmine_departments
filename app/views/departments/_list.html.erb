@@ -26,3 +26,7 @@
     <%- end %>
   </tbody>
 </table>
+<div id="departments-pagination" style="text-align:center; display:inline;"><%= will_paginate @departments %></div>
+<div id="departments-stats">
+	<strong>Total Departments:</strong> <%= @departmentCount %>
+</div>
