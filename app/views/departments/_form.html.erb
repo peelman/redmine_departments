@@ -15,22 +15,7 @@
   </table>
   <hr />
   <h3>Contacts</h3>
-  <table class="list">
-  	<thead style="text-align:left;">
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Courses</th>
-        <th>Remove</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%- f.fields_for :contacts do |contact_form| %>
-        <%= render :partial => 'departments/contacts/form', :locals => { :contact_form => contact_form } %>
-      <%- end %>
-    </tbody>
-  </table>
+  <%= render :partial => 'departments/contacts/form', :locals => { :f => f } %>
   <p>
     <%= f.submit "#{f.object.new_record? ? 'Create' : 'Save'} Department" %> <%= f.object.new_record? ? link_to(l(:link_cancel), departments_path) : link_to(l(:link_cancel), department_path, :id => @department)  %>
   </p>

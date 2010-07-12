@@ -1,7 +1,22 @@
-                <tr>
-                  <td><%= contact_form.text_field :name, :size => 15 %></td>
-                  <td><%= contact_form.text_field :email, :size => 20 %></td>
-                  <td><%= contact_form.text_field :phone, :size => 15 %></td>
-                  <td><%= contact_form.text_field :courses, :size => 20 %></td>
-                  <td><%= contact_form.check_box :_destroy %></td>
-                </tr>
+							<table class="list">
+								<thead style="text-align:left;">
+							    <tr>
+							      <th>Name</th>
+							      <th>Email</th>
+							      <th>Phone</th>
+							      <th>Courses</th>
+							      <th>Remove</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							  <%- f.fields_for :contacts do |contact_form| %>
+                	<tr>
+	                  <td><%= contact_form.text_field :name, :size => 15 %></td>
+	                  <td><%= contact_form.text_field :email, :size => 20 %></td>
+	                  <td><%= contact_form.text_field :phone, :size => 15 %></td>
+	                  <td><%= contact_form.text_field :courses, :size => 20 %></td>
+	                  <td><%= contact_form.check_box :_destroy %></td>
+	                </tr>
+							  <%- end %>
+						    </tbody>
+						  </table>
