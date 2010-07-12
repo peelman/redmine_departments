@@ -14,14 +14,16 @@ end
 
 require_dependency 'application_helper_global_patch'
 require_dependency 'departments_show_issue_hook'
+require_dependency 'departments_add_stylesheet'
 
 Redmine::Plugin.register :redmine_departments do
   name 'Redmine Departments plugin'
   author 'Nick Peelman'
   description 'Departments Plugin for the LSSupport Group'
-  version '0.0.1'
-
-  menu :top_menu, :departments, { :controller => 'departments', :action => 'index' }, :caption => 'Departments', :after => :new, :param => :project_id
+  version '1.0.0'
+    
+  menu :top_menu, :departments, { :controller => :departments, :action => :index }, :caption => 'Departments'
+  menu :admin_menu, :departments, {:controller => :departments, :action => :index }, :caption => 'Departments'
   
   project_module :departments do |map|
     map.permission :view_departments, { :departments => [:index, :show] }
@@ -33,4 +35,3 @@ Redmine::Plugin.register :redmine_departments do
   end
 
 end
-
