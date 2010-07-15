@@ -1,10 +1,10 @@
+<% if (request.headers["User-Agent"].match(/Mac OS X/)) 
+    multi_key = 'Command' 
+  else 
+    multi_key = 'Control' 
+  end %>
 <p>
-<% 
-    @departments = Department.find(:all, :order => :name)
-%>
-     
-<label>Choose Departments</label>
-		<span><%= select( 'department', 'department_id', @departments.map { |u| [ u.name, u.id ] }, { :include_blank => true }, { :multiple => 'multiple' } ) %></span>
-
-
+  <label><%= l(:label_department_plural) %></label>
+        <%= select('issue', 'department_ids', Department.all.sort_by(&:name).collect {|d| [ d.name, d.id ] }, {}, {:size => 7, :multiple => :multiple } ) %><br />
+        <span style="font-size:80%">Hold <%= multi_key %> to select multiple departments</span>
 </p>
