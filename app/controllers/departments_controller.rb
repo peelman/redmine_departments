@@ -24,7 +24,7 @@ class DepartmentsController < ApplicationController
       format.html 
       format.js do
         render :update do |page|
-          page.replace_html "departments", :partial => 'issues/departments', :locals => {:issue => @issue, :project => @project}
+          page.replace_html "departments", :partial => 'issues/departments', :locals => { :issue => @issue, :project => @project }
         end
       end
     end
