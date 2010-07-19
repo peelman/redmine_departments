@@ -1,7 +1,7 @@
 require 'redmine'
 
 require 'dispatcher'
-
+require 'will_paginate'
 
 Dispatcher.to_prepare :redmine_departments do
   require_dependency 'issue'
