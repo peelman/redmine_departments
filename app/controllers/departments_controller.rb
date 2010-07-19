@@ -137,7 +137,7 @@ class DepartmentsController < ApplicationController
     respond_to do |format|
       if @department.destroy
         flash[:notice] = "Department removed!"
-        format.html { redirect_to departments_path }
+        format.html { redirect_to :controller => 'departments', :action => 'index', :per_page => params[:per_page], :page => params[:page] }
         format.js { render(:update) { |page| page.replace_html "departments", :partial => 'departments/list', :locals => {:departments => @departments } } }
       else
         flash[:error] = "Couldn't delete department"
