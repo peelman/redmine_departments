@@ -1,1 +1,3 @@
-#admin-menu a.departments { background-image: url(../images/departments.jpg); }
+#admin-menu a.departments { background-image: url(../images/chart_organisation.png); }
+
+.icon-department-add { background-image: url(../images/chart_organisation_add.png); }
