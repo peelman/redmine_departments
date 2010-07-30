@@ -19,7 +19,7 @@ require_dependency 'departments_add_stylesheet'
 Redmine::Plugin.register :redmine_departments do
   name 'Redmine Departments plugin'
   author 'Nick Peelman'
-  description 'Departments Plugin for the LSSupport Group'
+  description 'Departments Plugin for the LSSupport Group.  Icons are from the Silk collection, by FamFamFam'
   version '1.0.0'
     
   menu :top_menu, :departments, { :controller => :departments, :action => :index }, :caption => 'Departments'
