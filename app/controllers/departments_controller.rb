@@ -3,8 +3,7 @@ class DepartmentsController < ApplicationController
   unloadable
   
   def index
-    @departments = Department.paginate :page => params[:page], :order => 'name ASC'
-    @departmentCount = Department.count(:all)
+    @departments = Department.paginate :page => params[:page], :per_page => params[:per_page], :order => 'name ASC'
     respond_to do |format|
       format.html
     end

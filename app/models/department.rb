@@ -3,7 +3,7 @@ class Department < ActiveRecord::Base
   has_many :contacts, :dependent => :destroy
 
   cattr_reader :per_page
-  @@per_page = 20
+  @@per_page = 25
   validates_presence_of :name
 
 
