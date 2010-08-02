@@ -39,6 +39,10 @@ Inspiration and guidance provided by:
 + Daniel Vandersluis's Redmine Resources plugin \(http://github.com/dvandersluis/redmine_resources\)
 + Extra Special Thanks to Chris Moore (http://github.com/cdmwebs)
 
+Fancy / Awesome Icons courteousy of [FamFamFam](http://www.famfamfam.com):
+
++ [Silk Icon Set](http://www.famfamfam.com/lab/icons/silk/)
+
 ##Licensing
 + This plugin is open-source and licensed under the "GNU General Public License v2"  See: [GPL 2.0 Website](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) for more info.
 + &copy; 2010 Nick Peelman
