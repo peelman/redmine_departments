@@ -1,12 +1,12 @@
 <table class="list">
   <thead style="text-align:left;">
     <tr>
-      <th><%= l('label_name') %></th>
-      <th><%= l('label_abbreviation') %></th>
-      <th><%= l('label_contacts') %></th>
+      <th><%= l('department_name') %></th>
+      <th><%= l('department_abbreviation') %></th>
+      <th><%= l('department_contacts') %></th>
       <th><%= l('label_issue_plural') %></th>
 			<% if authorize_for_with_global(:departments, :delete, true) %>
-      <th><%= l('label_remove') %></th>
+      <th><%= l('department_remove') %></th>
 				<% end %>
     </tr>
   </thead>
@@ -26,9 +26,3 @@
     <%- end %>
   </tbody>
 </table>
-<div id="departments-pagination" style="text-align:center; display:inline;">
-  <%= will_paginate @departments %>
-</div>
-<div id="departments-pagination-count" class="pagination" style="float:left;">
-  <%= @departments.offset + 1 %>-<%= [(@departments.offset + @departments.per_page), @departments.total_entries].min %> / <%= @departments.total_entries %> | <%= paginate_per_page_links @departments %>
-</div>

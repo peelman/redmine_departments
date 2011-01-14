@@ -1,4 +1,5 @@
 class Contact < ActiveRecord::Base
+  unloadable
   belongs_to :department
 
   validates_presence_of :name

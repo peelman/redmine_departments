@@ -8,7 +8,7 @@
 <div id="departments">
 	
   <%= render :partial => 'list' %>
-
+  <p class="pagination"><%= pagination_links_full @departments_pages, @departments_count %></p>
 </div>
 <% end %>
 <% html_title(l(:title_department_plural)) -%>

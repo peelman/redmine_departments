@@ -8,10 +8,10 @@ en:
   field_email: Email
   field_phone: Phone
   field_courses: Courses
-  label_remove: Remove
-  label_name: Name
-  label_abbreviation: Abbreviation
-  label_contacts: Contacts
+  department_remove: Remove
+  department_name: Name
+  department_abbreviation: Abbreviation
+  department_contacts: Contacts
   label_department_plural: Departments
   title_department_plural: Departments
   title_department_new: New Department

@@ -7,14 +7,16 @@ Dispatcher.to_prepare :redmine_departments do
   require_dependency 'issue'
   # Guards against including the module multiple time (like in tests)
   # and registering multiple callbacks
-  unless Issue.included_modules.include? RedmineDepartments::IssuePatch
+  unless Issue.included_modules.include?(RedmineDepartments::IssuePatch)
     Issue.send(:include, RedmineDepartments::IssuePatch)
   end
+#  unless ApplicationHelper.included_modules.include?(DepartmentsPlugin::ApplicationHelperGlobalPatch)
+#    ApplicationHelper.send(:include, DepartmentsPlugin::ApplicationHelperGlobalPatch)
+#  end
 end
 
-require_dependency 'application_helper_global_patch'
+require_dependency 'departments_application_controller_patch'
 require_dependency 'departments_show_issue_hook'
-require_dependency 'departments_add_stylesheet'
 
 Redmine::Plugin.register :redmine_departments do
   name 'Redmine Departments plugin'

@@ -1,4 +1,5 @@
 class Department < ActiveRecord::Base
+  unloadable
   has_and_belongs_to_many :issues, :join_table => "issue_has_departments"
   has_many :contacts, :dependent => :destroy
 

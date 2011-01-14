@@ -1,9 +1,15 @@
 class DepartmentsController < ApplicationController
-  
   unloadable
   
   def index
-    @departments = Department.paginate :page => params[:page], :per_page => params[:per_page], :order => 'name ASC'
+
+    limit = per_page_option
+    @departments_count = Department.count
+    @departments_pages = Paginator.new self, @departments_count, limit, params['page']
+    @departments = Department.find(:all,
+                  :order => 'name ASC',
+                  :offset => @departments_pages.current.offset,
+                  :limit => limit)
     respond_to do |format|
       format.html
     end

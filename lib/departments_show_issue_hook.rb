@@ -1,33 +1,47 @@
-# Extension to ViewListener to allow an :if parameter to render_on.
-# See <http://www.redmine.org/boards/3/topics/show/4316>
-module Redmine
-  module Hook
-    class ViewListener
-      def self.render_on(hook, options={})
-        define_method hook do |context|
-          if !options.include?(:if) || evaluate_if_option(options[:if], context)
-            context[:controller].send(:render_to_string, {:locals => context}.merge(options))
-          end
-        end
-      end
-
-      private
-
-      def evaluate_if_option(if_option, context)
-        case if_option
-        when Symbol
-          send(if_option, context)
-        when Method, Proc
-          if_option.call(context)
-        end        
-      end
-    end
-  end
-end
 
 class ShowIssueDepartmentsHook < Redmine::Hook::ViewListener
-  render_on :view_issues_show_description_bottom, :partial => "issues/departments", :if => :has_permission? 
-  render_on :view_issues_form_details_bottom, :partial => "issues/new/form", :if => :has_permission? 
+
+  # Renders the Departments
+  #
+  # Context:
+  # * :issue => Issue being rendered
+  #
+  def view_issues_show_details_bottom(context = { })
+    if has_permission?(context)
+      context[:controller].send(:render_to_string, {
+        :partial => "issues/new/form",
+        :locals => context
+      })
+    end
+  end
+
+  def view_issues_show_description_bottom(context = { })
+    if has_permission?(context)
+      context[:controller].send(:render_to_string, {
+        :partial => "issues/departments",
+        :locals => context
+      })
+    end
+  end
+
+  def set_departments_on_issue(context)
+    if context[:params] && context[:params][:issue] && context[:params][:issue][:departments_id].present?
+      context[:issue].departments = Department.find_by_id(context[:params][:issue][:deliverable_id].collect! {|i| i.to_i})
+    end
+    return ''
+  end
+
+  def controller_issues_new_before_save(context = {})
+    set_departments_on_issue(context)
+  end
+
+  def controller_issues_edit_before_save(context = {})
+    set_departments_on_issue(context)
+  end
+
+  def view_layouts_base_html_head(context)
+    stylesheet_link_tag 'departments', :plugin => 'redmine_departments'
+  end
 
 private
   def protect_against_forgery?
