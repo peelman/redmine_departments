@@ -29,13 +29,6 @@ class DepartmentsShowIssueHook < Redmine::Hook::ViewListener
     end
   end
 
-  def set_departments_on_issue(context)
-    if context[:params] && context[:params][:issue] && context[:params][:issue][:departments_id].present?
-      context[:issue].departments = Department.find_by_id(context[:params][:issue][:deliverable_id].collect! {|i| i.to_i})
-    end
-    return ''
-  end
-
   def controller_issues_new_before_save(context = {})
     set_departments_on_issue(context)
   end
@@ -55,5 +48,12 @@ private
 
   def has_permission?(context)
     context[:project].module_enabled?('departments') and User.current.allowed_to?(:view_departments, context[:project])
+  end
+
+  def set_departments_on_issue(context)
+    if context[:params] && context[:params][:issue] && context[:params][:issue][:department_ids].present?
+      context[:issue].departments = Department.find_all_by_id(context[:params][:issue][:department_ids].collect! {|i| i.to_i})
+    end
+    return ''
   end
 end
