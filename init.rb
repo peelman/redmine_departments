@@ -10,12 +10,11 @@ Dispatcher.to_prepare :redmine_departments do
   unless Issue.included_modules.include?(RedmineDepartments::IssuePatch)
     Issue.send(:include, RedmineDepartments::IssuePatch)
   end
-#  unless ApplicationHelper.included_modules.include?(DepartmentsPlugin::ApplicationHelperGlobalPatch)
-#    ApplicationHelper.send(:include, DepartmentsPlugin::ApplicationHelperGlobalPatch)
-#  end
+  unless ApplicationController.included_modules.include?(RedmineDepartments::ApplicationControllerPatch)
+    ApplicationController.send(:include, RedmineDepartments::ApplicationControllerPatch)
+  end
 end
 
-require_dependency 'departments_application_controller_patch'
 require_dependency 'departments_show_issue_hook'
 
 Redmine::Plugin.register :redmine_departments do

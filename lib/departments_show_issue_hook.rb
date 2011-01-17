@@ -1,26 +1,31 @@
 
-class ShowIssueDepartmentsHook < Redmine::Hook::ViewListener
+class DepartmentsShowIssueHook < Redmine::Hook::ViewListener
 
   # Renders the Departments
   #
   # Context:
   # * :issue => Issue being rendered
   #
-  def view_issues_show_details_bottom(context = { })
+#  def view_issues_show_details_bottom(context = {})
+  def view_issues_form_details_bottom(context = {})
     if has_permission?(context)
       context[:controller].send(:render_to_string, {
         :partial => "issues/new/form",
         :locals => context
       })
+    else
+      return ''
     end
   end
 
-  def view_issues_show_description_bottom(context = { })
+  def view_issues_show_description_bottom(context = {})
     if has_permission?(context)
       context[:controller].send(:render_to_string, {
         :partial => "issues/departments",
         :locals => context
       })
+    else
+      return ''
     end
   end
 
