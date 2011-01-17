@@ -18,6 +18,17 @@ class DepartmentsShowIssueHook < Redmine::Hook::ViewListener
     end
   end
 
+  def view_issues_bulk_edit_details_bottom(context = {})
+    if has_permission?(context)
+      context[:controller].send(:render_to_string, {
+        :partial => "issues/new/form",
+        :locals => context
+      })
+    else
+      return ''
+    end
+  end
+
   def view_issues_show_description_bottom(context = {})
     if has_permission?(context)
       context[:controller].send(:render_to_string, {
@@ -37,7 +48,11 @@ class DepartmentsShowIssueHook < Redmine::Hook::ViewListener
     set_departments_on_issue(context)
   end
 
-  def view_layouts_base_html_head(context)
+  def controller_issues_bulk_edit_before_save(context = {})
+    set_departments_on_issue(context)
+  end
+
+  def view_layouts_base_html_head(context = {})
     stylesheet_link_tag 'departments', :plugin => 'redmine_departments'
   end
 
