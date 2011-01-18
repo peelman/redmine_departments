@@ -7,12 +7,9 @@ Dispatcher.to_prepare :redmine_departments do
   require_dependency 'issue'
   # Guards against including the module multiple time (like in tests)
   # and registering multiple callbacks
-  unless Issue.included_modules.include?(RedmineDepartments::IssuePatch)
-    Issue.send(:include, RedmineDepartments::IssuePatch)
-  end
-  unless ApplicationController.included_modules.include?(RedmineDepartments::ApplicationControllerPatch)
-    ApplicationController.send(:include, RedmineDepartments::ApplicationControllerPatch)
-  end
+  Issue.send(:include, RedmineDepartments::IssuePatch) unless Issue.included_modules.include?(RedmineDepartments::IssuePatch)
+  ApplicationController.send(:include, RedmineDepartments::ApplicationControllerPatch) unless ApplicationController.included_modules.include?(RedmineDepartments::ApplicationControllerPatch)
+  Query.send(:include, RedmineDepartments::QueryPatch) unless Query.included_modules.include? RedmineDepartments::QueryPatch
 end
 
 require_dependency 'departments_show_issue_hook'
