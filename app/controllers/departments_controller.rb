@@ -11,7 +11,7 @@ class DepartmentsController < ApplicationController
                   :offset => @departments_pages.current.offset,
                   :limit => limit)
     respond_to do |format|
-      format.html
+      format.html { render :template => 'departments/index.html.erb', :layout => !request.xhr? }
     end
   end
 
