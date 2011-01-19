@@ -8,7 +8,7 @@ We needed to be able to track Departments as a separate entity in Redmine, with 
 ###Version
 + Currently at 1.0.1
 + Requires Redmine 0.9.x (built/tested on 0.9.6, untested on previous versions, but it should work...)
-+ Due to a change in Redmine 1.0, Departments won't work without some tweaking.  See my cc\_addresses plugin for details, as it shares the same issue. (this has been fixed in Redmine, but I don’t know what changes need to be made for _departments to work properly.
++ Due to a change in Redmine 1.0, Departments won't work without some tweaking.  See my cc\_addresses plugin for details, as it shares the same issue. (this has been fixed in Redmine, but I don’t know what changes need to be made for _departments to work properly).
 
 ###Bugs
 + If you find any bugs, or want to request a feature, feel free to contact me (info below) or create an issue here on GitHub.
@@ -29,13 +29,13 @@ We needed to be able to track Departments as a separate entity in Redmine, with 
 ##Author
 Nick Peelman
 
-- Email: nick \[at\] peelman \[dot\] us
+- Email: nick@peelman.us
 - Web: [peelman.us](http://peelman.us)
 - Github: [Github.com/peelman](http://github.com/peelman)
 
 ##Credits
 
-Thanks to [Freedayko](https://github.com/freedayko) for his contributions!
+Thanks to Aleksander Palyan \([Freedayko](https://github.com/freedayko)\) for his contributions!
 
 Inspiration and guidance provided by:
 
