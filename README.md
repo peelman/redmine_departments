@@ -48,4 +48,4 @@ Fancy / Awesome Icons courteousy of [FamFamFam](http://www.famfamfam.com):
 
 ##Licensing
 + This plugin is open-source and licensed under the "GNU General Public License v2"  See: [GPL 2.0 Website](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) for more info.
-+ &copy; 2010 Nick Peelman
++ &copy; 2010-2011 Nick Peelman
