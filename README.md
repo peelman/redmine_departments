@@ -5,6 +5,12 @@ We needed to be able to track Departments as a separate entity in Redmine, with 
 + Permissions for Viewing, Creating, and Removing Departments
 + Permissions for Viewing, Creating, and Removing Issue->Department relationships
 
+###Screenshots
+![Departments in action](http://peelman.us/skitch/Testing_-_Bug_%234__Testing_4_-_Redmine-20110701-085333.png)
+![Quick Add department to issue](http://peelman.us/skitch/Testing_-_Bug_%234__Testing_4_-_Redmine-20110701-085413.png)
+![Updating issue with one or more departments](http://peelman.us/skitch/Testing_-_Bug_%234__Testing_4_-_Redmine-20110701-085437.png)
+![Adding departments at issue creation](http://peelman.us/skitch/Testing_-_Redmine-20110701-085551.png)
+
 ###Version
 + Currently at 1.0.1
 + Requires Redmine 0.9.x (built/tested on 0.9.6, untested on previous versions, but it should work...)
