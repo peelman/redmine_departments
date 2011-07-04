@@ -10,7 +10,7 @@ We needed to be able to track Departments as a separate entity in Redmine, with 
 ![Single department view](http://dev.peelman.us/images/redmine_departments/Departments2.png)
 ![Issues can have departments](http://dev.peelman.us/images/redmine_departments/Departments3.png)
 ![Adding departments to issue](http://dev.peelman.us/images/redmine_departments/Departments4.png)
-![Adding departments at issue creation or update](http://dev.peelman.us/images/redmine_departments/Departments5.png)
+![Adding departments at issue creation or update](http://dev.peelman.us/images/redmine_departments/Departments5-1.png)
 
 ###Version
 + Currently at 1.0.1
