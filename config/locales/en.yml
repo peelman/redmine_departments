@@ -5,6 +5,7 @@ en:
   field_department_name: Department Name
   field_contacts: Contact
   field_name: Name
+  field_abbreviation: Abbreviation
   field_email: Email
   field_phone: Phone
   field_courses: Courses

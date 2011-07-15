@@ -1,8 +1,0 @@
-# English strings go here
-en:
-  label_name: Department Name
-  label_department_plural: Departments
-  label_contactnames: Contact Names
-  label_contactphones: Contact Phones
-  label_contactemails: Contact Emails
-  label_coursenames: Course Names
