@@ -18,9 +18,9 @@
 				<td><%= department.contacts.count %></td>
 				<td><%= department.issues.count %></td>
 				<% if authorize_for_with_global(:departments, :delete, true) %>
-        <td style="border: 0; padding: 0;">
-          <%= link_to(image_tag('delete.png'), department_path(department,:per_page => params[:per_page], :page => params[:page]), :confirm => "Are you sure?", :method => :delete) %>
-        </td>
+				<td>
+					<%= link_to(image_tag('delete.png'), department_path(department,:per_page => params[:per_page], :page => params[:page]), :confirm => "Are you sure?", :method => :delete) %>
+				</td>
 				<% end %>
       </tr>
     <%- end %>
