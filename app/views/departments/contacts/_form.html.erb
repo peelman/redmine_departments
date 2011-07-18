@@ -1,22 +1,21 @@
-							<table class="list">
-								<thead style="text-align:left;">
-							    <tr>
-							      <th>Name</th>
-							      <th>Email</th>
-							      <th>Phone</th>
-							      <th>Courses</th>
-							      <th>Remove</th>
-							    </tr>
-							  </thead>
-							  <tbody>
-							  <%- f.fields_for :contacts do |contact_form| %>
-                	<tr>
-	                  <td><%= contact_form.text_field :name, :size => 15 %></td>
-	                  <td><%= contact_form.text_field :email, :size => 20 %></td>
-	                  <td><%= contact_form.text_field :phone, :size => 15 %></td>
-	                  <td><%= contact_form.text_field :courses, :size => 20 %></td>
-	                  <td><%= contact_form.check_box :_destroy %></td>
-	                </tr>
-							  <%- end %>
-						    </tbody>
-						  </table>
+<div class="list" id="contacts_form">
+	<div id="row head">
+		<div class="cell head name" id="head_name">Name</div>
+		<div class="cell head email" id="head_email">Email</div>
+		<div class="cell head phone" id="head_phone">Phone</div>
+		<div class="cell head courses" id="head_courses">Courses</div>
+		<div class="cell head remove" id="head_courses">Remove</div>
+	</div>
+	<div id="contacts_form_list">
+	<%- f.fields_for :contacts do |contact_form| %>
+		<div class="row contact">
+			<div class="cell name"><%= contact_form.text_field :name, :size => 15 %></div>
+			<div class="cell email"><%= contact_form.text_field :email, :size => 25 %></div>
+			<div class="cell phone"><%= contact_form.text_field :phone, :size => 15 %></div>
+			<div class="cell courses"><%= contact_form.text_field :courses, :size => 20 %></div>
+			<div class="cell remove"><%= contact_form.check_box :_destroy %></div>
+		</div>
+	<%- end %>
+	</div>
+</div>
+

@@ -16,6 +16,8 @@
   <hr />
   <h3>Contacts</h3>
   <%= render :partial => 'departments/contacts/form', :locals => { :f => f } %>
+  <%= link_to_remote l(:label_add_contact), :url  => { :controller => :departments, :action => :new_department_add_contact }, :html => { :class => 'icon icon-add' } %>
+
   <p>
     <%= f.submit "#{f.object.new_record? ? 'Create' : 'Save'} Department" %> <%= f.object.new_record? ? link_to(l(:link_cancel), departments_path) : link_to(l(:link_cancel), department_path, :id => @department)  %>
   </p>

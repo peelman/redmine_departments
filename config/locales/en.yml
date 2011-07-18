@@ -9,11 +9,13 @@ en:
   field_email: Email
   field_phone: Phone
   field_courses: Courses
+  field_destroy: 
   department_remove: Remove
   department_name: Name
   department_abbreviation: Abbreviation
   department_contacts: Contacts
   label_department_plural: Departments
+  label_add_contact: Add Contact
   title_department_plural: Departments
   title_department_new: New Department
   title_department_edit: Edit Department

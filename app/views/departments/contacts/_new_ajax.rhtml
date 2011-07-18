@@ -1,0 +1,11 @@
+<%- fields_for :department, @department, :builder => TabularFormBuilder do |f| %>
+	<%- f.fields_for :contacts, :child_index => Time.now.to_i + Time.now.usec do |contact_form| %>
+	<div class="row contact">
+		<div class="cell name"><%= contact_form.text_field :name, :size => 15, :label => '' %></div>
+		<div class="cell email"><%= contact_form.text_field :email, :size => 25, :label => '' %></div>
+		<div class="cell phone"><%= contact_form.text_field :phone, :size => 15, :label => '' %></div>
+		<div class="cell courses"><%= contact_form.text_field :courses, :size => 20, :label => '' %></div>
+		<div class="cell remove"><a class="icon icon-del" style="font-size:75%" href="#" onclick="this.parentNode.parentNode.remove(); return false;"><%= l('department_remove') %></div>
+	</div>
+	<%- end %>
+<%- end %>

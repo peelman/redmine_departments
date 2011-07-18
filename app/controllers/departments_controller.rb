@@ -106,6 +106,16 @@ class DepartmentsController < ApplicationController
     end
   end
   
+  def new_department_add_contact
+    @department = Department.new
+    @department.contacts.build
+    respond_to do |format|
+      format.html { render :partial => 'departments/contacts/new_ajax', :locals => { :department => @department } }
+      format.js { render(:update) { |page| page.insert_html :bottom, 'contacts_form_list', :partial => 'departments/contacts/new_ajax', :locals => { :department => @department } } }
+    end
+  end
+
+  
   def removecontact
     @department = Department.find(params[:id])
     respond_to do |format|

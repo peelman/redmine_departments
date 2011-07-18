@@ -1,3 +1,12 @@
 #admin-menu a.departments { background-image: url(../images/chart_organisation.png); }
 
 .icon-department-add { background-image: url(../images/chart_organisation_add.png); }
+
+#contacts_form div.cell { display:inline-block; }
+#contacts_form div.head { font-weight:bold; }
+#contacts_form div.row { margin-bottom:7px;}
+#contacts_form div.name { width:125px; }
+#contacts_form div.email { width:175px; }
+#contacts_form div.phone { width:125px; }
+#contacts_form div.courses { width:150px; }
+#contacts_form div.remove { width:50px; }
