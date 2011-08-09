@@ -17,6 +17,8 @@ require_dependency 'departments_show_issue_hook'
 Redmine::Plugin.register :redmine_departments do
   name 'Redmine Departments plugin'
   author 'Nick Peelman'
+  author_url 'http://peelman.us'
+  url 'http://github.com/peelman/redmine_departments'
   description 'Departments Plugin for the LSSupport Group.  Icons are from the Silk collection, by FamFamFam'
   version '1.0.0'
     
